@@ -1,0 +1,19 @@
+{
+    "ignoreFiles": [
+    ],
+    "procs.ahk": {
+        "processes": [
+            "turtl.exe",
+            "Spotify.exe",
+            "firefox.exe",
+            "DiscordCanary.exe",
+            "Routine.exe",
+            "Antidote.exe",
+            "slack.exe",
+            "Spike.exe",
+            "Telegram.exe",
+            "KeePass.exe"
+        ],
+        "runPath": "shell:startup"
+    }
+}
