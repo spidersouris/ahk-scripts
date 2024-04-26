@@ -29,7 +29,7 @@ You can also run the `merge_ahk.py` Python script to merge all or some of the sc
 
 ### Settings
 
-The `settings.json` file can be edited to change the behaviour of the script. There are two main types of settings: general settingq and script-specific settings.
+The `settings.json` file can be edited to change the behaviour of the script. There are two main types of settings: general settings and script-specific settings.
 
 #### General Settings
 
