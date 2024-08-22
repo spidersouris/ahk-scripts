@@ -14,6 +14,7 @@ This repository contains a variety of [AutoHotkey](https://www.autohotkey.com/) 
 - **run_hotkeys.ahk**: A collection of hotkeys to run programs or scripts.
 - **setontop.ahk**: A script to set/unset a window on top of all other windows.
 - **typing_hotkeys.ahk**: A collection of hotkeys to type special characters and symbols more easily and quickly.
+- **uncopy_newlines.ahk**: A script to remove newlines when copying text (for example, when copying and pasting from a PDF file).
 
 ## Running scripts
 
