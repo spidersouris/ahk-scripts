@@ -225,3 +225,15 @@ move_5px()
 
 :*:->::{U+2192} ; hyphen + > = right arrow (→)
 
+; ================================================================================
+; # uncopy_newlines.ahk
+; ================================================================================
+^+C:: {
+    Suspend(1)
+    A_Clipboard := ""
+    Send "^c"
+    ClipWait(50)
+    A_Clipboard := RegExReplace(A_Clipboard, "(\R)", " ")
+    Suspend(0)
+    return
+}

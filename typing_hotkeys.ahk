@@ -1,3 +1,5 @@
+#Requires AutoHotkey v2.0
+
 ; Note: these hotkeys were designed with the French AZERTY keyboard layout in mind.
 
 ^!Space::Send("{U+00A0}") ; CTRL + ALT + Space = non-breaking space (nbsp)

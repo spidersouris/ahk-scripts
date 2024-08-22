@@ -1,3 +1,5 @@
+#Requires AutoHotkey v2.0
+
 ; Print current date
 :*:!date::
 {

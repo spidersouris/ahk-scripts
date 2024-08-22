@@ -1,3 +1,5 @@
+#Requires AutoHotkey v2.0
+
 n := 10 ; number of intervals
 w := A_ScreenWidth / n
 

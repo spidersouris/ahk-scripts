@@ -11,26 +11,28 @@ import json
 import re
 
 REGEX_PATTERNS = {
-    "procs.ahk": {
-        "processes": r"\[[\s\S]*?[\n\r].*\]",
-        "runPath": r"shell:startup"
-    }
+    "procs.ahk": {"processes": r"\[[\s\S]*?[\n\r].*\]", "runPath": r"shell:startup"}
 }
 
-parser = argparse.ArgumentParser(prog="merge_ahk.py",
-                                 description="""Merges all .ahk files in the
-                                 current directory into a single file""")
-parser.add_argument("-p", "--path",
-                    help="Path to the directory containing the .ahk files",
-                    default=".")
-parser.add_argument("-o", "--output", help="Output file name",
-                    default="ahk_scripts.ahk")
-parser.add_argument("-s", "--settings", help="Path to the settings file",
-                    default="settings.json")
+parser = argparse.ArgumentParser(
+    prog="merge_ahk.py",
+    description="""Merges all .ahk files in the
+                                 current directory into a single file""",
+)
+parser.add_argument(
+    "-p", "--path", help="Path to the directory containing the .ahk files", default="."
+)
+parser.add_argument(
+    "-o", "--output", help="Output file name", default="ahk_scripts.ahk"
+)
+parser.add_argument(
+    "-s", "--settings", help="Path to the settings file", default="settings.json"
+)
 args = parser.parse_args()
 
-AHK_FILES = [os.path.basename(file)
-             for file in glob.glob(os.path.join(args.path, "*.ahk"))]
+AHK_FILES = [
+    os.path.basename(file) for file in glob.glob(os.path.join(args.path, "*.ahk"))
+]
 
 if args.settings:
     with open(args.settings, "r", encoding="utf8") as s:
@@ -55,6 +57,7 @@ AHK_FILES = [file for file in AHK_FILES if file != args.output]
 if SETTINGS["ignoreFiles"]:
     AHK_FILES = [file for file in AHK_FILES if file not in SETTINGS["ignoreFiles"]]
 
+
 def apply_script_replacements(ahk_file: str, file_name: str) -> str:
     """
     Applies script replacements corresponding to the contents of the settings file
@@ -77,6 +80,7 @@ def apply_script_replacements(ahk_file: str, file_name: str) -> str:
 
     return ahk_file
 
+
 def main():
     """
     Merge multiple .ahk files into a single output file.
@@ -86,11 +90,14 @@ def main():
     Also applies script-specific replacements if specified in the settings.
     """
     with open(args.output, "w", encoding="utf8") as merged:
-        for file in AHK_FILES:
+        for i, file in enumerate(AHK_FILES):
             with open(file, "r", encoding="utf8") as f:
-                merged.write("; " + "="*80 + "\n")
+                # skip the first two lines ("require")
+                for _ in range(2):
+                    next(f)
+                merged.write("; " + "=" * 80 + "\n")
                 merged.write("; " + f"# {file}\n")
-                merged.write("; " + "="*80 + "\n")
+                merged.write("; " + "=" * 80 + "\n")
 
                 if file in SETTINGS and SETTINGS[file]:
                     new_content = apply_script_replacements(f.read(), file)
@@ -98,12 +105,14 @@ def main():
                 else:
                     merged.write(f.read())
 
-                merged.write("\n\n")
+                if i != len(AHK_FILES) - 1:
+                    merged.write("\n\n")
 
     print(f".ahk files successfully merged into {args.output}")
 
     if SETTINGS["ignoreFiles"]:
         print(f"Ignored files: {', '.join(SETTINGS['ignoreFiles'])}")
+
 
 if __name__ == "__main__":
     main()

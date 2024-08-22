@@ -1,3 +1,5 @@
+#Requires AutoHotkey v2.0
+
 ^F3:: {
     SetT := InputBox('How long from now? (minutes)', 'w250 h100').value * 60
 

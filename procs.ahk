@@ -1,3 +1,5 @@
+#Requires AutoHotkey v2.0
+
 ^!Up:: {
     procs := ["turtl.exe", "DiscordCanary.exe", "firefox.exe",
     "Routine.exe", "Spotify.exe", "Telegram.exe", "KeePass.exe",

@@ -17,7 +17,7 @@ This repository contains a variety of [AutoHotkey](https://www.autohotkey.com/) 
 
 ## Running scripts
 
-Scripts are made available individually so that you can pick and choose which ones you want to use. To run a script, simply download the `.ahk` file and run it with AutoHotkey. You can also add it to your startup folder on Windows to run it on startup (use Windows + R → `shell:startup` to access it).
+Scripts are made available individually so that you can pick and choose which ones you want to use. To run a script, simply download the `.ahk` file and run it with AutoHotkey. You can also add it to your startup folder on Windows to run it on startup (Windows + <kbd>R</kbd> → `shell:startup` to access it).
 
 ## Merging scripts with `merge_ahk.py`
 
