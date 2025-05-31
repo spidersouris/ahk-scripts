@@ -38,6 +38,8 @@
 
 <!SC008::Send("{U+0060}") ; ALT + è = backtick (`)
 
+<!SC003::Send("{U+007E}") ; ALT + é = tilde (~)
+
 >+SC00C::Send("{U+00BA}") ; RShift + ) = ordinal indicator (º)
 
 !SC012::Send("{U+1D49}") ; ALT + e = superscript e (ᵉ)
